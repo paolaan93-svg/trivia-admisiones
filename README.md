@@ -1,1 +1,1 @@
-# trivia-gamificacion
+# Master-admisiones
