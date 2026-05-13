@@ -1,6 +1,6 @@
 const questions = [
     {
-        q: "Caso 1: Un aspirante dice: 'La colegiatura es muy cara'. ¿Cuál es la mejor respuesta de valor?",
+        q: "Caso 1: Un aspirante dice: 'El valor del programa es muy alto'. ¿Cuál es la mejor respuesta de valor?",
         options: ["'Lo entiendo, pero somos los mejores'", "'¿Cuánto es su presupuesto mensual?'", "'Hablemos de la inversión a largo plazo y nuestro retorno de empleabilidad'"],
         correct: 2
     },
@@ -35,7 +35,7 @@ const questions = [
         correct: 0
     },
     {
-        q: "Caso 8: El aspirante está muy emocionado pero no tiene el dinero de la inscripción ahora. ¿Qué ofreces?",
+        q: "Caso 8: El aspirante está muy emocionado pero no tiene dinero para pagar el valor del programa ahora. ¿Qué ofreces?",
         options: ["Nada, que vuelva cuando tenga dinero", "Un plan de financiamiento o pago en parcialidades", "Que pida un préstamo bancario"],
         correct: 1
     },
@@ -49,4 +49,41 @@ const questions = [
         options: ["Lo bloqueas", "Llamas para reagendar mostrando preocupación genuina por su proceso", "Esperas a que él te busque"],
         correct: 1
     }
-];    
+];
+
+let currentQ = 0;
+let score = 0;
+
+function loadQuestion() {
+    const qData = questions[currentQ];
+    document.getElementById("question").innerText = qData.q;
+    const optionsDiv = document.getElementById("options");
+    optionsDiv.innerHTML = "";
+    
+    qData.options.forEach((opt, index) => {
+        const btn = document.createElement("button");
+        btn.innerText = opt;
+        btn.className = "btn-option";
+        btn.onclick = () => checkAnswer(index);
+        optionsDiv.appendChild(btn);
+    });
+}
+
+function checkAnswer(index) {
+    if(index === questions[currentQ].correct) {
+        score += 10;
+        alert("¡Excelente asesoría! +10 puntos.");
+    } else {
+        alert("Cuidado, podrías perder al aspirante. Revisa tu estrategia.");
+    }
+    currentQ++;
+    if(currentQ < questions.length) {
+        loadQuestion();
+    } else {
+        let finalMsg = score >= 80 ? "¡Eres un Máster en Admisiones!" : "Necesitas reforzar tus cierres.";
+        document.getElementById("question-box").innerHTML = `<h2>${finalMsg}</h2><p>Puntaje Final: ${score}/100</p>`;
+    }
+    document.getElementById("score").innerText = score;
+}
+
+loadQuestion();
