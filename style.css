@@ -1,6 +1,9 @@
 body {
-    font-family: 'Orbitron', sans-serif; /* Fuente tipo tecnológica */
-    background: radial-gradient(circle at center, #1b2735 0%, #090a0f 100%);
+    font-family: 'Orbitron', sans-serif;
+    /* Reemplaza la URL de abajo por el link de tu imagen */
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('https://tu-imagen-aqui.jpg') no-repeat center center fixed;
+    background-size: cover; /* Esto hace que la imagen cubra toda la pantalla */
     display: flex;
     justify-content: center;
     align-items: center;
