@@ -40,8 +40,8 @@ const questions = [
         correct: 1
     },
     {
-        q: "Caso 9: ¿Cuál es el mejor momento para pedir un referido?",
-        options: ["Nunca, es molesto", "Justo después de que el alumno se inscribe y está emocionado", "Un año después de que se gradúe"],
+        q: "Caso 9: El aspirante dice: 'No me decido aún porque estoy comparando otras opciones'. ¿Cómo actúas?",
+        options: ["'Está bien, me avisa cuando termine de comparar'", "'¿Qué factores está evaluando en las otras opciones para ayudarle a tomar la mejor decisión para su futuro?'", "'Ninguna otra opción es mejor que la nuestra, no pierda tiempo'"],
         correct: 1
     },
     {
