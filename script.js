@@ -25,7 +25,7 @@ const questions = [
         correct: 1
     },
     {
-        q: "Caso 6: Un alumno pide informes de una carrera que NO tenemos. ¿Qué haces?",
+        q: "Caso 6: Un aspirante pide informes de una carrera que NO tenemos. ¿Qué haces?",
         options: ["Dices 'No hay' y cuelgas", "Indagas su interés real y ofreces una opción afín de nuestro catálogo", "Le das el teléfono de la competencia"],
         correct: 1
     },
