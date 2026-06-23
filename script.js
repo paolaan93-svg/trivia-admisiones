@@ -3,8 +3,8 @@ const questions = [
         q: "Caso 1: Un aspirante dice: 'El valor del programa es muy alto'. ¿Cuál es la mejor respuesta de valor?",
         options: [
             "'Comprendo su punto, pero si revisa nuestro plan de estudios verá que somos la opción con mayor prestigio en el mercado actualmente.'",
-            "'Entiendo que el factor económico sea una preocupación. ¿Le parecería bien si evaluamos las facilidades de pago mensuales que se adapten a sus ingresos?'",
-            "'A primera vista puede parecerlo, pero hablemos del retorno de inversión: el 85% de nuestros egresados recupera lo invertido en los primeros 12 meses gracias a nuestra bolsa de empleo corporativa.'"
+            "'Entiendo que el factor económico sea una preocupación. ¿En este momento podemos evaluar las facilidades de pago mensuales que se adapten a sus ingresos?'",
+            "'A primera vista puede parecerlo, pero hablemos del retorno de inversión, es un valor que usted recuperará rápidamente con nuestros convenios de empleo '"
         ],
         correct: 2
     },
@@ -56,7 +56,7 @@ const questions = [
     {
         q: "Caso 7: Es el último día del cierre de inscripciones del mes y te encuentras a una sola matrícula de alcanzar tu meta comercial. ¿Qué estrategia utilizas con tus cierres pendientes?",
         options: [
-            "Aplicar el gatillo mental de la escasez y urgencia legítima, informando sobre el cierre definitivo del sistema de asignación de becas y la pérdida del beneficio de forma irreversible.",
+            "Aplicar el gatillo mental de la escasez y urgencia legítima, informando sobre el cierre definitivo de asignación de cupos y no poder disfrutar del beneficio vigente.",
             "Apelar a la relación de confianza construida con el aspirante, explicándole la situación del cierre de metas para solicitar su apoyo con la inscripción ese mismo día.",
             "Ofrecer un beneficio económico adicional de manera agresiva, asumiendo el costo del trámite administrativo para agilizar el pago antes de que termine la jornada."
         ],
@@ -111,7 +111,7 @@ const questions = [
         q: "Caso 13: Objeción de Terceros: 'El programa cumple con lo que busco, pero por políticas familiares debo consultar la inversión primero con mi pareja'. ¿Qué táctica aplicas?",
         options: [
             "'Entiendo la situación. Le envío el folleto digital por correo electrónico para que se lo muestre a su pareja y le marco el lunes para saber qué acordaron.'",
-            "'Es una decisión familiar muy importante. Para facilitar el análisis, ¿qué le parece si agendamos una videollamada de 10 minutos hoy con ambos para resolver las dudas financieras y técnicas de forma directa?'",
+            "'Es una decisión familiar muy importante. Para facilitar el análisis, ¿Podemos agendar una videollamada de 10 minutos hoy con ambos para resolver las dudas financieras y técnicas de forma directa?'",
             "'Al ser una inversión para su crecimiento profesional propio, usted debería tener la autonomía de tomar la decisión de inscripción de forma inmediata hoy.'"
         ],
         correct: 1
