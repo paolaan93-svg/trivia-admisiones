@@ -78,8 +78,29 @@ const questions = [
 
 let currentQ = 0;
 let score = 0;
+let advisorName = "";
+
+// Evento para arrancar el juego al dar clic en el botón de inicio
+document.getElementById("btn-start").onclick = function() {
+    const nameInput = document.getElementById("advisor-name").value.trim();
+    if (nameInput === "") {
+        alert("Por favor, introduce tu nombre para registrar tu sesión de entrenamiento.");
+        return;
+    }
+    advisorName = nameInput;
+    
+    // Transición visual de pantallas
+    document.getElementById("login-box").style.display = "none";
+    document.getElementById("question-box").style.display = "block";
+    document.getElementById("score-board").style.display = "block";
+    
+    loadQuestion();
+};
 
 function loadQuestion() {
+    // Mostrar permanentemente a quién pertenece la sesión activa
+    document.getElementById("advisor-display").innerText = `Asesor Evaluado: ${advisorName}`;
+    
     const qData = questions[currentQ];
     document.getElementById("question").innerText = qData.q;
     const optionsDiv = document.getElementById("options");
@@ -96,23 +117,18 @@ function loadQuestion() {
 
 function checkAnswer(index) {
     if(index === questions[currentQ].correct) {
-        score += 1; // Sumamos 1 punto por cada respuesta correcta de las 15
-        alert("¡Excelente manejo de objeción! Demostraste escucha activa.");
+        score += 1;
+        alert(`¡Excelente asesoría, ${advisorName}! +10 puntos.`);
     } else {
-        alert("Cuidado, esa respuesta puede enfriar el interés del aspirante.");
+        alert(`Cuidado, ${advisorName}. Esa respuesta puede enfriar el interés del aspirante.`);
     }
     currentQ++;
     if(currentQ < questions.length) {
         loadQuestion();
     } else {
         let finalPercentage = Math.round((score / questions.length) * 100);
-        let finalMsg = finalPercentage >= 80 ? "¡Eres un experto consultor en Admisiones!" : "Buen intento. Te sugerimos repasar las técnicas de cierre de valor.";
+        let finalMsg = finalPercentage >= 80 ? `¡Felicidades, ${advisorName}! Eres un experto consultor en Admisiones.` : `Buen intento, ${advisorName}. Te sugerimos repasar las técnicas de cierre de valor.`;
         document.getElementById("question-box").innerHTML = `<h2>${finalMsg}</h2><p>Eficacia Final: ${finalPercentage}% (${score}/${questions.length} aciertos)</p>`;
     }
-    // Mostramos el porcentaje real calculado
     document.getElementById("score").innerText = Math.round((score / questions.length) * 100);
 }
-
-loadQuestion();
-
-loadQuestion();
