@@ -160,14 +160,36 @@ function showResults() {
             <strong>FEEDBACK ESTRATÉGICO:</strong><br>${feedback.text}
         </div>
         
-        <button id="btn-download" class="btn-option" style="background-color: #27ae60; border-color: #27ae60;">DESCARGAR REPORTE CON FEEDBACK</button>
+        <button id="btn-download" class="btn-option" style="background-color: #27ae60; border-color: #27ae60; text-align: center; padding-left: 16px;">DESCARGAR REPORTE CON FEEDBACK</button>
     `;
     
     document.getElementById("score").innerText = finalPercentage;
 
+   
+    const formURL = "https://docs.google.com/forms/d/e/1FAIpQLSfDAGgnzIEquvZgYFhVmUdw4bwMMSphBjXQYCOpBHCEzq2RnA/viewform?usp=pp_url&entry.1224731282=paola+gomez&entry.572882463=100";
+    const nameID = "nombre"; 
+    const scoreID = "puntaje";
+
+    const formData = new FormData();
+    formData.append(nameID, advisorName);
+    formData.append(scoreID, finalPercentage + "%");
+
+    fetch(formURL, {
+        method: "POST",
+        mode: "no-cors",
+        body: formData
+    })
+    .then(() => {
+        console.log("Datos de la sesión comercial guardados en el reporte centralizado.");
+    })
+    .catch((error) => {
+        console.error("Error al sincronizar el reporte:", error);
+    });
+    // -------------------------------------------------------------
+
     document.getElementById("btn-download").onclick = function() {
         downloadReport(finalPercentage, feedback);
-    };
+};
 }
 
 function downloadReport(percentage, feedback) {
