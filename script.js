@@ -56,7 +56,7 @@ const questions = [
     {
         q: "Caso 7: Es el último día del cierre de inscripciones del mes y te encuentras a una sola matrícula de alcanzar tu meta comercial. ¿Qué estrategia utilizas con tus cierres pendientes?",
         options: [
-            "Aplicar el gatillo mental de la escasez y urgencia legítima, informando sobre el cierre definitivo de asignación de cupos y no poder disfrutar del beneficio vigente.",
+            "Aplicar el activador mental de la escasez y urgencia legítima, informando sobre el cierre definitivo de asignación de cupos y no poder disfrutar del beneficio vigente.",
             "Apelar a la relación de confianza construida con el aspirante, explicándole la situación del cierre de metas para solicitar su apoyo con la inscripción ese mismo día.",
             "Ofrecer un beneficio económico adicional de manera agresiva, asumiendo el costo del trámite administrativo para agilizar el pago antes de que termine la jornada."
         ],
