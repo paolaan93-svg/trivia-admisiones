@@ -16,7 +16,7 @@ const questions = [
     },
     {
         q: "Caso 4: El aspirante dice: 'Lo voy a pensar'. ¿Cuál es el cierre de urgencia correcto?",
-        options: ["'Claro, piénselo'", "'¿Hay algo específico que le impida decidir hoy para asegurar su beca?'", "'Si no decide hoy, perderá su lugar para siempre'"],
+        options: ["'Claro, piénselo'", "'¿Hay algo específico que le impida decidir hoy para asegurar su cupo?'", "'Si no decide hoy, perderá su lugar para siempre'"],
         correct: 1
     },
     {
