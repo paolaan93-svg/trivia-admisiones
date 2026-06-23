@@ -131,17 +131,17 @@ function checkAnswer(index) {
 function getFeedbackContent(percentage) {
     if (percentage >= 90) {
         return {
-            title: "🏆 ¡NIVEL ASESOR EXPERTO / CONSULTOR MASTER!",
+            title: "🏆 ¡NIVEL EXPERTO PRO / CONSULTOR MASTER!",
             text: "Excelente desempeño. Tienes un dominio sobresaliente de la venta consultiva. Sabes perfectamente cómo transformar las objeciones en argumentos de valor, manejas la urgencia con sutileza y pones las necesidades del aspirante en el centro del proceso. Mantienes un estándar ideal para liderar conversiones efectivas."
         };
     } else if (percentage >= 70) {
         return {
-            title: "📈 ¡NIVEL ASESOR SENIOR / EN DESARROLLO ÓPTIMO!",
+            title: "📈 ¡NIVEL EXPERTO SENIOR / EN DESARROLLO ÓPTIMO!",
             text: "Buen trabajo. Demuestras un manejo sólido de las interacciones comerciales y resuelves la mayoría de las objeciones con profesionalismo. Tu área de oportunidad radica en ajustar los cierres de urgencia y evitar caer en la trampa de la postergación o las comparaciones de la competencia. Con un pequeño ajuste táctico elevarás tu tasa de conversión."
         };
     } else {
         return {
-            title: "⚠️ ¡NIVEL REQUERIRÁ REFORZAMIENTO COMPLEMENTARIO!",
+            title: "⚠️ ¡NIVEL REQUERIRÁ REFUERZO COMPLEMENTARIO!",
             text: "El simulador detecta que estás usando un enfoque de venta tradicional o reactivo. Tiendes a ceder ante las objeciones de valor o a presionar con cierres agresivos que alejan al aspirante. Es clave repasar técnicas de escucha activa y construcción de valor antes de hablar de costos. ¡Sigue entrenando, la práctica hace al maestro!"
         };
     }
