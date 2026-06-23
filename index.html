@@ -4,19 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador Pro: Admisiones</title>
-    <!-- Fuente tecnológica de Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="game-container">
-        <div class="header-ui">CERTIFICACIÓN DE EXPERTOS - SIMULADOR 3D</div>
+        <div class="header-ui">CERTIFICACIÓN DE EXPERTO - SIMULADOR TÁCTICO</div>
         <h1>Master en Admisiones</h1>
-        <div id="question-box">
-            <p id="question">Iniciando sistema de entrenamiento...</p>
+        
+        <!-- Pantalla de Login o Registro del Experto -->
+        <div id="login-box">
+            <p>Por favor, ingresa tu credencial de asesor para iniciar la simulación:</p>
+            <input type="text" id="advisor-name" placeholder="Nombre completo del asesor" autocomplete="off">
+            <button class="btn-option" id="btn-start" style="margin-top: 20px;">INICIAR SISTEMA</button>
+        </div>
+
+        <!-- Caja de la Trivia (Oculta al inicio) -->
+        <div id="question-box" style="display: none;">
+            <p id="advisor-display" style="color: #00d4ff; font-weight: bold; font-size: 14px; text-transform: uppercase;"></p>
+            <p id="question">Cargando caso...</p>
             <div id="options"></div>
         </div>
-        <div id="score-board">
+
+        <div id="score-board" style="display: none;">
             EFICACIA OPERATIVA: <span id="score">0</span>%
         </div>
     </div>
