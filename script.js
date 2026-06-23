@@ -151,6 +151,7 @@ function showResults() {
     let finalPercentage = Math.round((score / questions.length) * 100);
     let feedback = getFeedbackContent(finalPercentage);
     
+   // Corregido: Ahora solo hay un botón limpio y centrado
     const questionBox = document.getElementById("question-box");
     questionBox.innerHTML = `
         <h2 style="color: #00d4ff;">${feedback.title}</h2>
@@ -162,13 +163,16 @@ function showResults() {
         
         <button id="btn-download" class="btn-option" style="background-color: #27ae60; border-color: #27ae60; text-align: center; padding-left: 16px;">DESCARGAR REPORTE CON FEEDBACK</button>
     `;
-    
+
     document.getElementById("score").innerText = finalPercentage;
 
-   
-    const formURL = "https://docs.google.com/forms/d/e/1FAIpQLSfDAGgnzIEquvZgYFhVmUdw4bwMMSphBjXQYCOpBHCEzq2RnA/viewform?usp=pp_url&entry.1224731282=paola+gomez&entry.572882463=100";
-    const nameID = "nombre"; 
-    const scoreID = "puntaje";
+    // --- CONFIGURACIÓN DE GOOGLE FORMS CORREGIDA ---
+    // Cambiamos 'viewform' por 'formResponse' para habilitar el envío automático de fondo
+    const formURL = "https://docs.google.com/forms/d/e/1FAIpQLSfDAGgnzIEquvZgYFhVmUdw4bwMMSphBjXQYCOpBHCEzq2RnA/formResponse";
+    
+    // Cambiamos las palabras por tus IDs numéricos reales extraídos de tu enlace
+    const nameID = "entry.1224731282"; 
+    const scoreID = "entry.572882463";
 
     const formData = new FormData();
     formData.append(nameID, advisorName);
