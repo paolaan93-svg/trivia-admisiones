@@ -45,3 +45,23 @@ body {
     box-shadow: 0 0 20px #00d4ff;
     transform: translateY(-3px);
 }
+input[type="text"] {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 212, 255, 0.4);
+    border-radius: 8px;
+    background-color: rgba(10, 25, 47, 0.6);
+    color: #ffffff;
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    font-size: 16px;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border: 2px solid #00d4ff;
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
