@@ -115,7 +115,7 @@ function loadQuestion() {
 function checkAnswer(index) {
     if(index === questions[currentQ].correct) {
         score += 1;
-        alert(`¡Excelente asesoría, ${advisorName}! +10 puntos.`);
+        alert(`¡Excelente asesoría, ${advisorName}! Demostraste un buen manejo de la situación.`);
     } else {
         alert(`Cuidado, ${advisorName}. Esa respuesta puede enfriar el interés del aspirante.`);
     }
@@ -127,32 +127,54 @@ function checkAnswer(index) {
     }
 }
 
+// Función para determinar el feedback según la nota
+function getFeedbackContent(percentage) {
+    if (percentage >= 90) {
+        return {
+            title: "🏆 ¡NIVEL ASESOR EXPERTO / CONSULTOR MASTER!",
+            text: "Excelente desempeño. Tienes un dominio sobresaliente de la venta consultiva. Sabes perfectamente cómo transformar las objeciones en argumentos de valor, manejas la urgencia con sutileza y pones las necesidades del aspirante en el centro del proceso. Mantienes un estándar ideal para liderar conversiones efectivas."
+        };
+    } else if (percentage >= 70) {
+        return {
+            title: "📈 ¡NIVEL ASESOR SENIOR / EN DESARROLLO ÓPTIMO!",
+            text: "Buen trabajo. Demuestras un manejo sólido de las interacciones comerciales y resuelves la mayoría de las objeciones con profesionalismo. Tu área de oportunidad radica en ajustar los cierres de urgencia y evitar caer en la trampa de la postergación o las comparaciones de la competencia. Con un pequeño ajuste táctico elevarás tu tasa de conversión."
+        };
+    } else {
+        return {
+            title: "⚠️ ¡NIVEL REQUERIRÁ REFORZAMIENTO COMPLEMENTARIO!",
+            text: "El simulador detecta que estás usando un enfoque de venta tradicional o reactivo. Tiendes a ceder ante las objeciones de valor o a presionar con cierres agresivos que alejan al aspirante. Es clave repasar técnicas de escucha activa y construcción de valor antes de hablar de costos. ¡Sigue entrenando, la práctica hace al maestro!"
+        };
+    }
+}
+
 function showResults() {
     let finalPercentage = Math.round((score / questions.length) * 100);
-    let finalMsg = finalPercentage >= 80 ? `¡Felicidades, ${advisorName}! Eres un experto consultor en Admisiones.` : `Buen intento, ${advisorName}. Te sugerimos repasar las técnicas de cierre de valor.`;
+    let feedback = getFeedbackContent(finalPercentage);
     
-    // Cambiamos el contenido de la caja de preguntas para mostrar los resultados finales
     const questionBox = document.getElementById("question-box");
     questionBox.innerHTML = `
-        <h2>${finalMsg}</h2>
-        <p style="font-size: 18px; margin: 20px 0;">Eficacia Final: <strong>${finalPercentage}%</strong> (${score}/${questions.length} aciertos)</p>
-        <button id="btn-download" class="btn-option" style="background-color: #27ae60; border-color: #27ae60;">DESCARGAR REPORTE OFICIAL</button>
+        <h2 style="color: #00d4ff;">${feedback.title}</h2>
+        <p style="font-size: 20px; margin: 10px 0; font-weight: bold;">Eficacia Operativa: ${finalPercentage}% (${score}/${questions.length} aciertos)</p>
+        
+        <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; text-align: left; margin: 20px 0; font-size: 14px; line-height: 1.6; border-left: 4px solid #00d4ff;">
+            <strong>FEEDBACK ESTRATÉGICO:</strong><br>${feedback.text}
+        </div>
+        
+        <button id="btn-download" class="btn-option" style="background-color: #27ae60; border-color: #27ae60;">DESCARGAR REPORTE CON FEEDBACK</button>
     `;
     
     document.getElementById("score").innerText = finalPercentage;
 
-    // Asignar la función de descarga al nuevo botón generado
     document.getElementById("btn-download").onclick = function() {
-        downloadReport(finalPercentage);
+        downloadReport(finalPercentage, feedback);
     };
 }
 
-function downloadReport(percentage) {
+function downloadReport(percentage, feedback) {
     const date = new Date().toLocaleDateString();
     
-    // Estructura de texto del reporte descargable
     const reportText = `==================================================
-REPORTE DE EVALUACIÓN - SIMULADOR DE ADMISIONES
+REPORTE DE EVALUACIÓN Y FEEDBACK - ADMISIONES
 ==================================================
 Fecha de Certificación: ${date}
 Asesor Evaluado: ${advisorName}
@@ -160,19 +182,20 @@ Asesor Evaluado: ${advisorName}
 RESULTADOS TÁCTICOS:
 Aciertos Totales: ${score} de ${questions.length} casos resueltos.
 Eficacia Operativa: ${percentage}%
-Estatus: ${percentage >= 80 ? "APROBADO - Máster en Admisiones" : "REQUIERE REFUERZO"}
+Nivel Asignado: ${feedback.title}
+--------------------------------------------------
+FEEDBACK DE DESEMPEÑO PERSONALIZADO:
+${feedback.text}
 --------------------------------------------------
 Este documento avala la participación y el desempeño del asesor 
-en el manejo y resolución de objeciones de valor con aspirantes.
+en el simulador interactivo de manejo de objeciones de valor.
 ==================================================`;
 
-    // Crear el archivo para la descarga
     const blob = new Blob([reportText], { type: "text/plain;charset=utf-8" });
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
-    link.download = `Reporte_Admisiones_${advisorName.replace(/ /g, "_")}.txt`;
+    link.download = `Reporte_Feedback_Admisiones_${advisorName.replace(/ /g, "_")}.txt`;
     
-    // Simular el clic para iniciar la descarga
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
