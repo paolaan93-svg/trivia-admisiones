@@ -6,7 +6,7 @@ const questions = [
     },
     {
         q: "Caso 2: Un interesado deja sus datos pero no contesta las llamadas. ¿Qué técnica aplicas?",
-        options: ["Llamar 10 veces seguidas", "Enviar un mensaje de valor por WhatsApp con un testimonio", "Borrarlo de la base de datos"],
+        options: ["Llamar 10 veces seguidas", "Enviar un mensaje de valor por WhatsApp motivador para que continue con el proceso", "Borrarlo de la base de datos"],
         correct: 1
     },
     {
@@ -21,7 +21,7 @@ const questions = [
     },
     {
         q: "Caso 5: Te comparan con la competencia que es más barata. Tu respuesta es:",
-        options: ["Hablar mal de la otra escuela", "Resaltar los diferenciales únicos y acreditaciones", "Igualar el precio de inmediato"],
+        options: ["Hablar mal de la otra institución", "Resaltar los diferenciales únicos y acreditaciones", "Igualar el precio de inmediato"],
         correct: 1
     },
     {
@@ -56,7 +56,7 @@ const questions = [
     },
     {
         q: "Caso 12: Objeción de Desconfianza: 'El programa es virtual y no sé si los títulos tengan validez oficial'. ¿Cuál es la respuesta correcta?",
-        options: ["'Claro que valen, confíe en mí'", "'Le comparto de inmediato los registros legales, acreditaciones ministeriales y testimonios de egresados vinculados al mercado'", "'Todas las universidades virtuales son iguales hoy en día'"],
+        options: ["'Claro que valen, confíe en mí'", "'Le comparto de inmediato las acreditaciones institucionales y prestigio de la institución'", "'Todas las universidades virtuales son iguales hoy en día'"],
         correct: 1
     },
     {
@@ -96,7 +96,7 @@ document.getElementById("btn-start").onclick = function() {
 };
 
 function loadQuestion() {
-    document.getElementById("advisor-display").innerText = `Asesor Evaluado: ${advisorName}`;
+    document.getElementById("advisor-display").innerText = `Experto Evaluado: ${advisorName}`;
     
     const qData = questions[currentQ];
     document.getElementById("question").innerText = qData.q;
