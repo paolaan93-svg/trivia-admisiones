@@ -80,7 +80,6 @@ let currentQ = 0;
 let score = 0;
 let advisorName = "";
 
-// Evento para arrancar el juego al dar clic en el botón de inicio
 document.getElementById("btn-start").onclick = function() {
     const nameInput = document.getElementById("advisor-name").value.trim();
     if (nameInput === "") {
@@ -89,7 +88,6 @@ document.getElementById("btn-start").onclick = function() {
     }
     advisorName = nameInput;
     
-    // Transición visual de pantallas
     document.getElementById("login-box").style.display = "none";
     document.getElementById("question-box").style.display = "block";
     document.getElementById("score-board").style.display = "block";
@@ -98,7 +96,6 @@ document.getElementById("btn-start").onclick = function() {
 };
 
 function loadQuestion() {
-    // Mostrar permanentemente a quién pertenece la sesión activa
     document.getElementById("advisor-display").innerText = `Asesor Evaluado: ${advisorName}`;
     
     const qData = questions[currentQ];
@@ -126,9 +123,57 @@ function checkAnswer(index) {
     if(currentQ < questions.length) {
         loadQuestion();
     } else {
-        let finalPercentage = Math.round((score / questions.length) * 100);
-        let finalMsg = finalPercentage >= 80 ? `¡Felicidades, ${advisorName}! Eres un experto consultor en Admisiones.` : `Buen intento, ${advisorName}. Te sugerimos repasar las técnicas de cierre de valor.`;
-        document.getElementById("question-box").innerHTML = `<h2>${finalMsg}</h2><p>Eficacia Final: ${finalPercentage}% (${score}/${questions.length} aciertos)</p>`;
+        showResults();
     }
-    document.getElementById("score").innerText = Math.round((score / questions.length) * 100);
+}
+
+function showResults() {
+    let finalPercentage = Math.round((score / questions.length) * 100);
+    let finalMsg = finalPercentage >= 80 ? `¡Felicidades, ${advisorName}! Eres un experto consultor en Admisiones.` : `Buen intento, ${advisorName}. Te sugerimos repasar las técnicas de cierre de valor.`;
+    
+    // Cambiamos el contenido de la caja de preguntas para mostrar los resultados finales
+    const questionBox = document.getElementById("question-box");
+    questionBox.innerHTML = `
+        <h2>${finalMsg}</h2>
+        <p style="font-size: 18px; margin: 20px 0;">Eficacia Final: <strong>${finalPercentage}%</strong> (${score}/${questions.length} aciertos)</p>
+        <button id="btn-download" class="btn-option" style="background-color: #27ae60; border-color: #27ae60;">DESCARGAR REPORTE OFICIAL</button>
+    `;
+    
+    document.getElementById("score").innerText = finalPercentage;
+
+    // Asignar la función de descarga al nuevo botón generado
+    document.getElementById("btn-download").onclick = function() {
+        downloadReport(finalPercentage);
+    };
+}
+
+function downloadReport(percentage) {
+    const date = new Date().toLocaleDateString();
+    
+    // Estructura de texto del reporte descargable
+    const reportText = `==================================================
+REPORTE DE EVALUACIÓN - SIMULADOR DE ADMISIONES
+==================================================
+Fecha de Certificación: ${date}
+Asesor Evaluado: ${advisorName}
+--------------------------------------------------
+RESULTADOS TÁCTICOS:
+Aciertos Totales: ${score} de ${questions.length} casos resueltos.
+Eficacia Operativa: ${percentage}%
+Estatus: ${percentage >= 80 ? "APROBADO - Máster en Admisiones" : "REQUIERE REFUERZO"}
+--------------------------------------------------
+Este documento avala la participación y el desempeño del asesor 
+en el manejo y resolución de objeciones de valor con aspirantes.
+==================================================`;
+
+    // Crear el archivo para la descarga
+    const blob = new Blob([reportText], { type: "text/plain;charset=utf-8" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = `Reporte_Admisiones_${advisorName.replace(/ /g, "_")}.txt`;
+    
+    // Simular el clic para iniciar la descarga
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 }
