@@ -12,7 +12,7 @@ const questions = [
         q: "Caso 2: Un interesado de base de datos deja sus datos de contacto pero no contesta las llamadas reiteradas. ¿Qué técnica aplicas?",
         options: [
             "Mantener la insistencia telefónica cambiando los horarios de llamada (mañana, tarde y noche) durante 5 días hábiles continuos.",
-            "Enviar un mensaje estructurado por WhatsApp que incluya un saludo personalizado, un testimonio en video de un egresado de esa misma carrera y una pregunta abierta sobre sus objetivos profesionales.",
+            "Enviar un mensaje estructurado por WhatsApp que incluya un saludo personalizado y una pregunta abierta sobre sus objetivos profesionales.",
             "Dar de baja el registro inmediatamente en el sistema CRM para optimizar el tiempo de marcado con bases de datos más frescas."
         ],
         correct: 1
@@ -102,7 +102,7 @@ const questions = [
         q: "Caso 12: Objeción de Desconfianza: 'Al ser un formato virtual, me genera mucha incertidumbre el nivel de exigencia y si el título profesional tiene validez legal'. ¿Cuál es el manejo correcto?",
         options: [
             "'Le aseguro de forma personal que somos una institución seria y que todo nuestro catálogo de programas cumple con las leyes educativas vigentes.'",
-            "'Le comparto los folios de registro gubernamental oficial (RVOE/Ministerio), junto con un enlace a nuestra comunidad de egresados y testimonios en LinkedIn para que verifique la inserción laboral real de los alumnos.'",
+            "'Entiendo que pueda generarle dudas, pero tenga en cuenta que la institución esta avalada por diferentes entidades que garantizan la alta calidad de nuestros programas tanto virtuales como presenciales.'",
             "'Hoy en día toda la educación superior se está mudando al formato virtual; la validez es exactamente la misma y los exámenes de hecho son automatizados.'"
         ],
         correct: 1
@@ -111,7 +111,7 @@ const questions = [
         q: "Caso 13: Objeción de Terceros: 'El programa cumple con lo que busco, pero por políticas familiares debo consultar la inversión primero con mi pareja'. ¿Qué táctica aplicas?",
         options: [
             "'Entiendo la situación. Le envío el folleto digital por correo electrónico para que se lo muestre a su pareja y le marco el lunes para saber qué acordaron.'",
-            "'Es una decisión familiar muy importante. Para facilitar el análisis, ¿Podemos agendar una videollamada de 10 minutos hoy con ambos para resolver las dudas financieras y técnicas de forma directa?'",
+            "'Es una decisión familiar muy importante. Para facilitar el análisis, ¿Podemos agendar una llamada de 10 minutos hoy con ambos para resolver las dudas financieras y técnicas de forma directa?'",
             "'Al ser una inversión para su crecimiento profesional propio, usted debería tener la autonomía de tomar la decisión de inscripción de forma inmediata hoy.'"
         ],
         correct: 1
